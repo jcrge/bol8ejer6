@@ -8,6 +8,7 @@ public class ParsedArgs {
     public int bytesPerLine;
     public boolean offsetWithColon;
     public boolean showAscii;
+    public boolean showOffset;
     public InputStream inputStream;
 
     public ParsedArgs(String[] args) throws InvalidArgumentsException, IOException {
@@ -55,6 +56,12 @@ public class ParsedArgs {
                         args = removeFromBeginning(args, 1);
                     break;
 
+                    case "--show-offset":
+                    case "-x":
+                        showOffset = true;
+                        args = removeFromBeginning(args, 1);
+                    break;
+
                     case "--ascii":
                     case "-a":
                         showAscii = true;
@@ -89,6 +96,7 @@ public class ParsedArgs {
         bytesPerLine = 16;
         offsetWithColon = false;
         showAscii = false;
+        showOffset = false;
         inputStream = System.in;
     }
 

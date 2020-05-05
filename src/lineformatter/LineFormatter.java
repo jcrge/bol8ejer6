@@ -3,12 +3,14 @@ package lineformatter;
 public class LineFormatter {
     private boolean offsetWithColon;
     private boolean showAscii;
+    private boolean showOffset;
     private int byteChunkSize;
     private int offsetWidth;
 
     public LineFormatter() {
         offsetWithColon = true;
         showAscii = true;
+        showOffset = true;
         byteChunkSize = 4;
         offsetWidth = 0;
     }
@@ -29,6 +31,10 @@ public class LineFormatter {
         this.offsetWidth = offsetWidth;
     }
 
+    public void setShowOffset(boolean showOffset) {
+        this.showOffset = showOffset;
+    }
+
     public String getLine(int offset, byte[] bytes, int rightPadding) {
         return String.format(
             "%s %s %s",
@@ -38,6 +44,10 @@ public class LineFormatter {
     }
 
     private String getOffsetCol(int offset) {
+        if (!showOffset) {
+            return "";
+        }
+
         return String.format(
             "%" + (offsetWidth > 0 ? "0" + offsetWidth : "") + "x%s",
             offset,

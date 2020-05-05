@@ -29,6 +29,7 @@ public class App {
             lineFormatter.setOffsetWithColon(parsedArgs.offsetWithColon);
             lineFormatter.setShowAscii(parsedArgs.showAscii);
             lineFormatter.setOffsetWidth(parsedArgs.offsetWidth);
+            lineFormatter.setShowOffset(parsedArgs.showOffset);
 
             int offset = 0;
             byte[] buffer = new byte[parsedArgs.bytesPerLine];
