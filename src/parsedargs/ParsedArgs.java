@@ -17,7 +17,7 @@ public class ParsedArgs {
             while (args.length > 0) {
                 switch (args[0].toLowerCase()) {
                     case "--chunk-size":
-                    case "-c":
+                    case "-s":
                         try {
                             byteChunkSize = Integer.parseInt(args[1]);
                         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
@@ -50,7 +50,7 @@ public class ParsedArgs {
                     break;
 
                     case "--colon":
-                    case "-C":
+                    case "-c":
                         offsetWithColon = true;
                         args = removeFromBeginning(args, 1);
                     break;
