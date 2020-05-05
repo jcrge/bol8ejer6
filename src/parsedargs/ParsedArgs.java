@@ -62,7 +62,7 @@ public class ParsedArgs {
                         args = removeFromBeginning(args, 1);
                     break;
 
-                    case "--ascii":
+                    case "--show-ascii":
                     case "-a":
                         showAscii = true;
                         args = removeFromBeginning(args, 1);
