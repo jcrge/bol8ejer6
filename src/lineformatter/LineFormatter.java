@@ -40,7 +40,7 @@ public class LineFormatter {
             "%s %s %s",
             getOffsetCol(offset),
             getBytesCol(bytes, rightPadding),
-            getAsciiCol(bytes));
+            getAsciiCol(bytes, rightPadding));
     }
 
     private String getOffsetCol(int offset) {
@@ -72,15 +72,19 @@ public class LineFormatter {
         return res;
     }
 
-    private String getAsciiCol(byte[] bytes) {
+    private String getAsciiCol(byte[] bytes, int rightPadding) {
         if (!showAscii) {
             return "";
         }
 
         String res = "";
         for (int i = 0; i < bytes.length; i++) {
-            char currByte = (char)bytes[i];
-            res += String.format("%c", isPrintable(currByte) ? currByte : '.');
+            if (i < bytes.length - rightPadding) {
+                char currByte = (char)bytes[i];
+                res += String.format("%c", isPrintable(currByte) ? currByte : '.');
+            } else {
+                res += " ";
+            }
         }
 
         return res;
