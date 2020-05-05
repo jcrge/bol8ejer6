@@ -87,8 +87,8 @@ public class ParsedArgs {
         byteChunkSize = 1;
         offsetWidth = 8;
         bytesPerLine = 16;
-        offsetWithColon = true;
-        showAscii = true;
+        offsetWithColon = false;
+        showAscii = false;
         inputStream = System.in;
     }
 
